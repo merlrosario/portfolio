@@ -1,0 +1,80 @@
+<html>  
+<head>
+<style>
+body {
+  background-image: url('ilikeit.jpg');
+  background-repeat: no-repeat;
+background-size: cover;
+}
+</style>
+</head>
+<title> Random String Generator </title> 
+<script>
+function randomString() 
+{  
+            //specify the length for the new string  
+    var l = prompt("Enter the length of password you wish to have : ");  
+    var r = ''; 
+var choice = document.getElementById("myInput").value;
+
+switch(choice) 
+{
+  	case 1:
+    		text = "Alphabets";
+    		break;
+  	case 2:
+		text = "Numbers";
+    		break;
+  	case 3:
+		text = "Special";
+    		break;
+	default:
+   		text = "All mixed together";
+}
+if(choice==1)
+{
+var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoprstuvwxyz";
+} 
+else if(choice==2)
+{
+var characters = "0123456789";
+}
+else if(choice==3)
+{
+var characters = "!@#$%^&*()[]{}/-_=+|";
+}
+else
+{
+var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()[]{}/-_=+|";
+}
+            //loop to select a new character in each iteration  
+    for (var i=0; i<l; i++) 
+    {  
+         var a = Math.floor(Math.random() * characters.length);  
+        r += characters.substring(a, a+1);
+    }  
+  
+             //display the generated string   
+    document.getElementById("rf").innerHTML = r; 
+
+
+}
+    
+</script>  
+<body text="white">  
+<img src="logo.png" alt="logo" height=110 >
+<h1 align="center" style="color: white"> <b><big>Random Password Generator</big></b></h1>
+<h2 align ="center" >
+<p>1)Only Alphabets <br>
+2)Only Numbers <br>
+3)Only Special Characters</p></h2>
+<h2 align="center"><p>Enter from the choices below the type of password you want:</p></h2>
+<h4 align="center"> Click the button to generate a random string </h4>   
+<center><form name="random"> 
+<input id="myInput" type="text"> 
+<input type="button" value="try" onClick="randomString();">
+<br><br>  
+<b><h1><p id="rf" style="color: white"><h1></p></b>
+</form> 
+</body>  
+</html>
